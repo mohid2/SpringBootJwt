@@ -43,7 +43,6 @@ public class AuthServiceImpl implements IAuthService {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword())
         );
-
         User user = userRepository.findByEmail(request.getEmail()).orElseThrow();
             String jwtToken= jwtServiceImpl.generateToken(user);
             return AuthResponse.builder().message("Se ha autenticado con exitó").token(jwtToken).build();

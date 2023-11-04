@@ -37,13 +37,16 @@ public class SecurityConfig {
                                 .anyRequest().authenticated())
                 .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
     private RequestMatcher publicEndpoints(){
         return new OrRequestMatcher(
                 new AntPathRequestMatcher("/api/hello"),
-                new AntPathRequestMatcher("/api/auth/**")
+                new AntPathRequestMatcher("/swagger-ui/**"),
+                new AntPathRequestMatcher("/v3/api-docs/**"),
+                new AntPathRequestMatcher("/api/auth/**"),
+                new AntPathRequestMatcher("/error")
         );
     }
 
