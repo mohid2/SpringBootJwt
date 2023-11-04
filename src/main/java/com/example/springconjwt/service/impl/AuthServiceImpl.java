@@ -1,8 +1,8 @@
 package com.example.springconjwt.service.impl;
 
-import com.example.springconjwt.controller.models.AuthResponse;
-import com.example.springconjwt.controller.models.LoginRequest;
-import com.example.springconjwt.controller.models.RegisterRequest;
+import com.example.springconjwt.models.AuthResponse;
+import com.example.springconjwt.models.LoginRequest;
+import com.example.springconjwt.models.RegisterRequest;
 import com.example.springconjwt.entity.Role;
 import com.example.springconjwt.entity.User;
 import com.example.springconjwt.repository.IUserRepository;

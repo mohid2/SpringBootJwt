@@ -1,4 +1,4 @@
-package com.example.springconjwt.controller.models;
+package com.example.springconjwt.models;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

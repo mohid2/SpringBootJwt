@@ -1,8 +1,8 @@
 package com.example.springconjwt.controller;
 
-import com.example.springconjwt.controller.models.AuthResponse;
-import com.example.springconjwt.controller.models.LoginRequest;
-import com.example.springconjwt.controller.models.RegisterRequest;
+import com.example.springconjwt.models.AuthResponse;
+import com.example.springconjwt.models.LoginRequest;
+import com.example.springconjwt.models.RegisterRequest;
 import com.example.springconjwt.service.IAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

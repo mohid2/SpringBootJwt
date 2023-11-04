@@ -1,8 +1,8 @@
 package com.example.springconjwt.service;
 
-import com.example.springconjwt.controller.models.AuthResponse;
-import com.example.springconjwt.controller.models.LoginRequest;
-import com.example.springconjwt.controller.models.RegisterRequest;
+import com.example.springconjwt.models.AuthResponse;
+import com.example.springconjwt.models.LoginRequest;
+import com.example.springconjwt.models.RegisterRequest;
 
 public interface IAuthService {
      AuthResponse register(RegisterRequest request);
