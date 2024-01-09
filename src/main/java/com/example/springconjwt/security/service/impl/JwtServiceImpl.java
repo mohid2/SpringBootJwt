@@ -1,6 +1,6 @@
-package com.example.springconjwt.service.impl;
+package com.example.springconjwt.security.service.impl;
 
-import com.example.springconjwt.service.IJwtService;
+import com.example.springconjwt.security.service.IJwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

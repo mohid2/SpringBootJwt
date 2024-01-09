@@ -1,4 +1,4 @@
-package com.example.springconjwt.models;
+package com.example.springconjwt.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AuthResponse {
+public class JwtResponse {
     private String message;
     private String token;
 

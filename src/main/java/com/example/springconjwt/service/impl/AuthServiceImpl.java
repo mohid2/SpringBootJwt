@@ -1,11 +1,12 @@
 package com.example.springconjwt.service.impl;
 
-import com.example.springconjwt.models.AuthResponse;
-import com.example.springconjwt.models.LoginRequest;
-import com.example.springconjwt.models.RegisterRequest;
+import com.example.springconjwt.dto.JwtResponse;
+import com.example.springconjwt.dto.LoginRequest;
+import com.example.springconjwt.dto.RegisterRequest;
 import com.example.springconjwt.entity.Role;
 import com.example.springconjwt.entity.User;
 import com.example.springconjwt.repository.IUserRepository;
+import com.example.springconjwt.security.service.impl.JwtServiceImpl;
 import com.example.springconjwt.service.IAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,7 +23,7 @@ public class AuthServiceImpl implements IAuthService {
     private final JwtServiceImpl jwtServiceImpl;
     private final AuthenticationManager authenticationManager;
     @Override
-    public AuthResponse register(RegisterRequest request) {
+    public JwtResponse register(RegisterRequest request) {
         if(!userRepository.findByEmail(request.getEmail()).isPresent()){
             User user = User.builder()
                     .firstName(request.getFirstName())
@@ -33,19 +34,17 @@ public class AuthServiceImpl implements IAuthService {
                     .build();
             userRepository.save(user);
             String jwtToken= jwtServiceImpl.generateToken(user);
-            return AuthResponse.builder().message("Se ha registrado con exito").token(jwtToken).build();
+            return JwtResponse.builder().message("Se ha registrado con exito").token(jwtToken).build();
         }
-        return AuthResponse.builder().message("El user esta duplicado").build();
+        return JwtResponse.builder().message("El user esta duplicado").build();
     }
 
     @Override
-    public AuthResponse login(LoginRequest request) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword())
-        );
+    public JwtResponse login(LoginRequest request) {
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword()));
         User user = userRepository.findByEmail(request.getEmail()).orElseThrow();
             String jwtToken= jwtServiceImpl.generateToken(user);
-            return AuthResponse.builder().message("Se ha autenticado con exitó").token(jwtToken).build();
+            return JwtResponse.builder().message("Se ha autenticado con exitó").token(jwtToken).build();
 
     }
 }

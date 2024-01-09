@@ -1,4 +1,4 @@
-package com.example.springconjwt.models;
+package com.example.springconjwt.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

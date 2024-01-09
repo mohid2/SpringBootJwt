@@ -1,7 +1,6 @@
-package com.example.springconjwt.config.security.Jwt;
+package com.example.springconjwt.security.Jwt;
 
-import com.example.springconjwt.service.IJwtService;
-import com.example.springconjwt.service.impl.JwtServiceImpl;
+import com.example.springconjwt.security.service.IJwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -62,39 +61,4 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         return null;
     }
-//    otra forma para implementar el doFilter
-
-//    @Override
-//    protected void doFilterInternal(@NonNull HttpServletRequest request,@NonNull HttpServletResponse response,
-//                                    @NonNull FilterChain filterChain) throws ServletException, IOException {
-//        final String authHeader =request.getHeader("Authorization");
-//
-//        final String jwt;
-//        final String userEmail;
-//
-//        if ( authHeader==null || !authHeader.startsWith("Bearer")){
-//            filterChain.doFilter(request,response);
-//            return;
-//        }
-//        jwt = authHeader.substring(7);
-//        userEmail = jwtServiceImpl.getUserName(jwt);
-//
-//        if(userEmail != null && SecurityContextHolder.getContext().getAuthentication() ==   null){
-//            UserDetails userDetails = userDetailsService.loadUserByUsername(userEmail);
-//            if(jwtServiceImpl.validateToken(jwt,userDetails)){
-//                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-//                        userDetails,
-//                        null,
-//                        userDetails.getAuthorities()
-//                );
-//                authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-//                SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-//            }
-//        }
-//
-//        filterChain.doFilter(request,response);
-//
-//    }
-
-
 }

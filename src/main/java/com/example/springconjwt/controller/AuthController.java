@@ -1,8 +1,8 @@
 package com.example.springconjwt.controller;
 
-import com.example.springconjwt.models.AuthResponse;
-import com.example.springconjwt.models.LoginRequest;
-import com.example.springconjwt.models.RegisterRequest;
+import com.example.springconjwt.dto.JwtResponse;
+import com.example.springconjwt.dto.LoginRequest;
+import com.example.springconjwt.dto.RegisterRequest;
 import com.example.springconjwt.service.IAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +15,11 @@ public class AuthController {
 
     private final IAuthService authService;
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest request){
+    public ResponseEntity<JwtResponse> register(@RequestBody RegisterRequest request){
         return ResponseEntity.ok(authService.register(request));
     }
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request){
+    public ResponseEntity<JwtResponse> login(@RequestBody LoginRequest request){
         return ResponseEntity.ok(authService.login(request)) ;
     }
 

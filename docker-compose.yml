@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  app:
+    container_name: "springjwt"
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=jdbc:mysql://localhost:3306/jwt
+      - DATABASE_USERNAME=root
+      - DATABASE_PASSWORD=123456789

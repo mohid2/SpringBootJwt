@@ -15,7 +15,7 @@ public class SaludoController {
     }
 
     @GetMapping("/helloprotected")
-    public String Helloprotected(){
+    public String HelloProtected(){
         return "Hello from endpoint protected";
     }
 

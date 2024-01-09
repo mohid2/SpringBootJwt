@@ -1,11 +1,11 @@
 package com.example.springconjwt.service;
 
-import com.example.springconjwt.models.AuthResponse;
-import com.example.springconjwt.models.LoginRequest;
-import com.example.springconjwt.models.RegisterRequest;
+import com.example.springconjwt.dto.JwtResponse;
+import com.example.springconjwt.dto.LoginRequest;
+import com.example.springconjwt.dto.RegisterRequest;
 
 public interface IAuthService {
-     AuthResponse register(RegisterRequest request);
-     AuthResponse login(LoginRequest request);
+     JwtResponse register(RegisterRequest request);
+     JwtResponse login(LoginRequest request);
 
 }
