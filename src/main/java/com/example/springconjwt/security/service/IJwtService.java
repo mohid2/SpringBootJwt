@@ -1,4 +1,4 @@
-package com.example.springconjwt.service;
+package com.example.springconjwt.security.service;
 
 import io.jsonwebtoken.Claims;
 import org.springframework.security.core.userdetails.UserDetails;

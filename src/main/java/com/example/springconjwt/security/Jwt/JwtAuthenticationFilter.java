@@ -1,7 +1,6 @@
-package com.example.springconjwt.config.security.Jwt;
+package com.example.springconjwt.security.Jwt;
 
-import com.example.springconjwt.service.IJwtService;
-import com.example.springconjwt.service.impl.JwtServiceImpl;
+import com.example.springconjwt.security.service.IJwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
